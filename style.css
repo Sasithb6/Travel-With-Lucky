@@ -1,0 +1,977 @@
+/* === CSS Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* === Header / Navigation === */
+header {
+    background-color: #122232; /* Dark blue background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.logo .highlight {
+    color: #00d2ff; /* Bright blue for "Lucky" */
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00d2ff;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.btn-quote {
+    background-color: #f38210; /* Orange */
+    color: #ffffff;
+}
+
+.btn-quote:hover {
+    background-color: #d16e0c;
+}
+
+.btn-primary {
+    background-color: #f38210; /* Orange */
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #d16e0c;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* === Hero Section === */
+.hero {
+    position: relative;
+    /* Using a placeholder nature image, replace url() with your local image path like 'images/sigiriya.jpg' */
+    background-image: linear-gradient(rgba(18, 34, 50, 0.6), rgba(18, 34, 50, 0.6)), url('Src/img/Sigiriya_Background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 76px); /* Full height minus header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    color: #ffffff;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.hero-content p {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* === Scroll Mouse Icon === */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-mouse {
+    width: 22px;
+    height: 36px;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    position: relative;
+    display: block;
+}
+
+.scroll-mouse::before {
+    content: '';
+    width: 4px;
+    height: 8px;
+    background: #ffffff;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 18px; opacity: 0; }
+}
+
+/* === Floating Chat Widget === */
+.chat-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366; /* WhatsApp Green */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.chat-widget:hover {
+    transform: scale(1.1);
+}
+
+/* === Responsive Design === */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* === Layout Utility === */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === About / Guide Section === */
+.about-section {
+    padding: 100px 0;
+    background-color: #ffffff;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* -- Left Column: Image -- */
+.about-image-wrapper {
+    position: relative;
+    border-radius: 12px;
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background-color: #f38210; /* Orange */
+    color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(243, 130, 16, 0.3);
+}
+
+.experience-badge .years {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.experience-badge .text {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* -- Right Column: Content -- */
+.about-content h2 {
+    color: #122232; /* Dark blue */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.about-content > p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+/* -- Credentials Card -- */
+.credentials-card {
+    border: 2px solid #00d2ff; /* Bright blue */
+    border-radius: 12px;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card-header i {
+    font-size: 24px;
+    color: #00d2ff;
+}
+
+.card-header h3 {
+    color: #122232;
+    font-size: 1.3rem;
+}
+
+.credentials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.credentials-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.credentials-list li i {
+    color: #f38210; /* Orange */
+    font-size: 18px;
+    margin-top: 3px;
+}
+
+.cred-text h4 {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.cred-text p {
+    color: #777;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* === Responsive Adjustments for About Section === */
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+    
+    .experience-badge {
+        right: 20px; /* Pulls the badge inside the wrapper slightly on smaller screens */
+        bottom: -30px;
+    }
+}
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f6f8fb;
+margin:0;
+padding:0;
+color:#333;
+}
+
+/* SECTION */
+
+.adventures-section{
+padding:70px 0;
+}
+
+.container{
+width:90%;
+margin:auto;
+}
+
+/* TITLE */
+
+.section-title{
+text-align:center;
+font-size:28px;
+font-weight:600;
+letter-spacing:1px;
+color:#1c2b3a;
+margin-bottom:50px;
+}
+
+/* SLIDER */
+
+.slider{
+overflow:hidden;
+width:100%;
+}
+
+.slide-track{
+display:flex;
+gap:30px;
+animation:scroll 45s linear infinite;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-2000px);}
+}
+
+/* CARD */
+
+.tour-card{
+width:350px;
+flex-shrink:0;
+background:white;
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+overflow:hidden;
+transition:transform 0.3s ease;
+}
+
+.tour-card:hover{
+transform:translateY(-6px);
+}
+
+/* IMAGE */
+
+.card-image-gallery{
+position:relative;
+}
+
+.img-main{
+width:100%;
+height:210px;
+object-fit:cover;
+}
+
+.sub-images{
+display:flex;
+}
+
+.img-sub{
+width:50%;
+height:90px;
+object-fit:cover;
+}
+
+/* BADGES */
+
+.badge{
+position:absolute;
+top:12px;
+left:12px;
+font-size:11px;
+font-weight:600;
+padding:6px 10px;
+border-radius:5px;
+color:white;
+letter-spacing:0.5px;
+}
+
+.badge-orange{background:#ff7b00;}
+.badge-blue{background:#2196f3;}
+.badge-green{background:#4caf50;}
+.badge-purple{background:#9c27b0;}
+.badge-red{background:#e53935;}
+.badge-teal{background:#009688;}
+
+/* CONTENT */
+
+.card-content{
+padding:20px;
+}
+
+/* TITLE */
+
+.card-content h3{
+font-size:18px;
+font-weight:600;
+color:#1d2b3a;
+margin-bottom:10px;
+line-height:1.4;
+}
+
+/* META INFO */
+
+.tour-meta{
+font-size:14px;
+color:#6b7a8c;
+margin-bottom:15px;
+line-height:1.7;
+}
+
+.tour-meta p{
+margin:0;
+}
+
+/* HIGHLIGHTS */
+
+.tour-highlights h4{
+font-size:14px;
+font-weight:600;
+color:#1d2b3a;
+margin-bottom:8px;
+letter-spacing:0.5px;
+text-transform:uppercase;
+}
+
+.tour-highlights ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.tour-highlights li{
+font-size:14px;
+color:#5a6a7a;
+margin-bottom:6px;
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+/* BUTTON */
+
+.btn-blue{
+display:inline-block;
+margin-top:15px;
+background:#2f6fa5;
+color:white;
+font-size:13px;
+font-weight:500;
+padding:10px 18px;
+border-radius:6px;
+text-decoration:none;
+letter-spacing:0.5px;
+transition:background 0.3s;
+}
+
+.btn-blue:hover{
+background:#1e4f79;
+}
+
+.slider{
+overflow-x:scroll;
+cursor:grab;
+}
+.slider:hover .slide-track{
+animation-play-state:paused;
+}
+
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.services-section {
+    padding: 60px 20px;
+    background-color: #fcfcfc;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* FIX: Centering the Header */
+.section-header {
+    text-align: center; /* This keeps both words in the middle */
+    margin-bottom: 50px;
+}
+
+.main-title {
+    font-size: 32px;
+    color: #344767;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #8392ab;
+    font-size: 16px;
+}
+
+/* FIX: Aligning Cards side-by-side */
+.services-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+}
+
+.service-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+/* Icon Styles */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon-box img { width: 24px; }
+
+.blue { background-color: #4fd1f9; }
+.light-blue { background-color: #a5f3fc; }
+.pale-blue { background-color: #e0f2fe; }
+
+/* Text inside cards */
+.service-card h3 {
+    color: #344767;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: left; /* Headers in cards usually look better left-aligned */
+}
+
+.service-card p {
+    color: #67748e;
+    font-size: 14.5px;
+    line-height: 1.6;
+    text-align: left; /* Keeps paragraph text neat */
+}
+
+/* Section Background with Dark Gradient */
+.design-path {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 100px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header Styling */
+.design-header h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #cbd5e1; /* Soft white/grey */
+}
+
+.design-header p {
+    font-size: 16px;
+    color: #94a3b8;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+}
+
+/* Form Card Styling */
+.form-card {
+    background-color: #f8fafc; /* Very light grey/white */
+    border-radius: 15px;
+    padding: 40px;
+    color: #162242;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.form-card label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #475569;
+}
+
+/* Textarea Styling */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 14px;
+    resize: none; /* Keeps the UI clean */
+    margin-bottom: 25px;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: #f97316; /* Orange glow on focus */
+}
+
+/* Orange Button Styling */
+.btn-customize {
+    width: 100%;
+    background-color: #f57c00; /* Vibrant Orange */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+}
+
+.btn-customize:hover {
+    background-color: #e67100;
+}
+
+/* Disclaimer text at bottom */
+.disclaimer {
+    font-size: 12px;
+    color: #94a3b8;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.testimonials {
+    background-color: #f8fafc;
+    padding: 80px 20px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Hide the actual radio inputs */
+input[type="radio"] {
+    display: none;
+}
+
+/* Card Styling */
+.testimonial-card {
+    display: none; /* Hide all cards */
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: left;
+    position: relative;
+}
+
+/* CSS Logic: If radio 1 is checked, show card 1, etc. */
+#t-1:checked ~ .testimonial-cards .item-1,
+#t-2:checked ~ .testimonial-cards .item-2,
+#t-3:checked ~ .testimonial-cards .item-3 {
+    display: block;
+    animation: fadeEffect 0.5s;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Arrow Navigation Styling */
+.nav-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 150px; /* Space them out below the card content */
+    margin-top: 30px;
+}
+
+.nav-arrows label {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    color: #64748b;
+    transition: 0.2s;
+}
+
+.nav-arrows label:hover {
+    background: #f1f5f9;
+}
+
+/* Dots Styling */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: -30px; /* Adjusting position to sit between arrows */
+    position: relative;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Active Dot Logic */
+#t-1:checked ~ .dots .dot-1,
+#t-2:checked ~ .dots .dot-2,
+#t-3:checked ~ .dots .dot-3 {
+    background: #06b6d4;
+    width: 20px;
+    border-radius: 10px;
+}
+
+/* Standard interior styles */
+.stars { color: #fbbf24; margin-bottom: 15px; }
+.review-text { font-style: italic; color: #475569; line-height: 1.6; margin-bottom: 20px; }
+.separator { border: 0; border-top: 1px solid #f1f5f9; margin-bottom: 20px; }
+.author-name { color: #1e293b; margin: 0; }
+.author-location { color: #94a3b8; font-size: 13px; }
+.tour-tag { background: #ecfeff; color: #06b6d4; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; }
+
+.whatsapp-sticky {
+    position: fixed;
+    bottom: 30px; /* Distance from bottom */
+    right: 30px;  /* Distance from right */
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; /* WhatsApp Green */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Ensures it stays on top of all sections */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-sticky:hover {
+    transform: scale(1.1); /* Slightly grows when hovered */
+    background-color: #128c7e; /* Darker green on hover */
+}
+
+.whatsapp-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optional: Animation to grab attention */
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-sticky {
+    animation: pulse-green 2s infinite;
+}
+
+
+
+/* Footer Styles */
+.main-footer {
+    background-color: #050a14; /* Deep dark blue */
+    color: #94a3b8; /* Light grey text */
+    padding: 80px 20px 30px;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; /* Good for mobile */
+    margin-bottom: 60px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Brand Section */
+.footer-logo {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.footer-logo span {
+    color: #06b6d4; /* Teal color for 'Lucky' */
+}
+
+.brand-desc {
+    line-height: 1.8;
+    font-size: 14px;
+    margin-bottom: 30px;
+    max-width: 300px;
+}
+
+/* Headings in Footer */
+.footer-col h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* Links and Lists */
+.contact-links, .quick-links {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-links li, .quick-links li {
+    margin-bottom: 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quick-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.quick-links a:hover {
+    color: #06b6d4;
+}
+
+/* Copyright & Bottom bar */
+.copyright {
+    font-size: 12px;
+    color: #475569;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+    text-align: right; /* Matches the image */
+}
+
+.footer-bottom p {
+    font-size: 12px;
+    font-style: italic;
+    color: #475569;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column;
+    }
+    
+    .footer-bottom {
+        text-align: center;
+    }
+}
